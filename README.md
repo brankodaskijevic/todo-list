@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Todo list
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A baisc react project which includes good practices, Typescript and testing.
 
 ## Available Scripts
 

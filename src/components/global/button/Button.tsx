@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ButtonBlock = styled.button`
+export const Button = styled.button`
   background-color: ${({ color }) => color ? 'rgb(224, 49, 49)' : 'rgb(25, 113, 194)'};
   color: white;
   font-weight: bold;

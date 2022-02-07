@@ -1,11 +1,11 @@
 import './App.css'
-import Button from './components/global/button/Button'
+import { Button } from './components/global/button'
 
 function App() {
   return (
     <div className="App">
       <h1>Hello, World!</h1>
-      <Button>Click me</Button>
+      <Button>Create new task</Button>
     </div>
   )
 }

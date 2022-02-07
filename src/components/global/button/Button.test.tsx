@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Button from './Button'
+import { Button } from '.'
 
 describe('Button', () => {
   it('renders the button with some text', () => {
@@ -11,7 +11,7 @@ describe('Button', () => {
   })
 
   it('render the button with some text and color vairant', () => {
-    render(<Button color={'violet'}>violet color</Button>)
+    render(<Button>violet color</Button>)
 
     const button = screen.getByText(/violet color/i)
     expect(button).toBeInTheDocument()

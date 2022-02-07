@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'styled-components'
 import './App.css'
 import Header from './components/header/Header'
+import TodoStats from './components/todo-stats/TodoStats'
 
 const theme = {
   tablet: '1024px',
@@ -10,9 +11,10 @@ const theme = {
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
+      <>
         <Header>Todo List</Header>
-      </div>
+        <TodoStats></TodoStats>
+      </>
     </ThemeProvider>
   )
 }

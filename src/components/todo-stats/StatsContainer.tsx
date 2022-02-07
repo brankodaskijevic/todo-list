@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-const Header = styled.header`
+const StatsContainer = styled.div`
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 1024px;
-  margin: auto;
-  text-align: center;
-  /* border-bottom: 2px solid rgb(25, 113, 194); */
-  font-size: 3rem;
-  font-weight: bold;
-  padding: 1rem 0rem;
-  color: rgb(25, 113, 194);
+  padding: 1.5rem 0rem;
+  background-color: #f8f8f8;
+  border-radius: 6px;
 
   @media (max-width: ${({ theme }) => theme.tablet}) {
     width: 100%;
@@ -22,4 +22,4 @@ const Header = styled.header`
   }
 `
 
-export default Header
+export default StatsContainer

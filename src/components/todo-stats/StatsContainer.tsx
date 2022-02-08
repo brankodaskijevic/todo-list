@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-const StatsContainer = styled.div`
+export const StatsContainer = styled.div`
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 1024px;
-  padding: 1.5rem 0rem;
+  padding: 0.5rem 0rem;
   background-color: #f8f8f8;
   border-radius: 6px;
 
@@ -21,5 +21,8 @@ const StatsContainer = styled.div`
     padding: 0.6rem 0rem;
   }
 `
-
-export default StatsContainer
+export const StatsLegendContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+`

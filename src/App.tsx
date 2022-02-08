@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import './App.css'
 import Header from './components/header/Header'
@@ -21,12 +22,14 @@ const todos: Array<Todo> = [
 ]
 
 function App() {
+  const [todosList, setTodosList] = useState<Array<Todo>>(todos)
+
   return (
     <ThemeProvider theme={theme}>
       <>
         <Header>Todo List</Header>
         <TodoStats todos={todos} />
-        <TodoForm />
+        <TodoForm todos={todos} />
         <TodoFilter />
         <Todos todos={todos} />
       </>

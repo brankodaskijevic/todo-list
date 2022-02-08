@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { Select, Collapse, Input } from '@mantine/core'
 import { Todo, TodoPriority } from '../../interfaces'
 import { Button } from '../global/button/Button'
 import { FormContainer } from './FormContainer'
 
-const TodoForm = () => {
+interface TodoFormProps {
+  todos: Array<Todo>
+  // setTodosList: () => Array<Todo>
+}
+
+const TodoForm: FC<TodoFormProps> = ({
+  todos,
+  // setTodosList
+}) => {
   const [opened, setOpened] = useState(false)
 
   const selectData = [
@@ -15,6 +23,7 @@ const TodoForm = () => {
 
   const submitHandler = (e: any) => {
     e.preventDefault()
+    console.log('submited')
   }
 
 
@@ -31,7 +40,7 @@ const TodoForm = () => {
             placeholder='Pick one'
             data={selectData}
           />
-          <Button>Add</Button>
+          <Button type='submit'>Add</Button>
         </form>
       </Collapse>
     </FormContainer>

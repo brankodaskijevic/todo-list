@@ -1,6 +1,6 @@
-import { RingProgress, Text } from '@mantine/core'
+import { RingProgress } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
-import { StatsContainer } from './StatsContainer'
+import { Container } from '../global/container/Container'
 import StatsLegend from './StatsLegend'
 
 const TodoStats = () => {
@@ -13,14 +13,14 @@ const TodoStats = () => {
   ]
 
   return (
-    <StatsContainer>
+    <Container>
       <RingProgress
         size={matches ? 120 : 200}
         thickness={matches ? 8 : 16}
         sections={progressSections}
       />
       <StatsLegend />
-    </StatsContainer>
+    </Container>
   )
 }
 

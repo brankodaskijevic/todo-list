@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const FormContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 1024px;
   padding: 0.5rem 0rem;
@@ -13,7 +14,6 @@ export const Container = styled.div`
   background-color: rgb(26, 27, 30);
   color: rgb(193, 194, 197);
   border-radius: 6px;
-  gap: 1em;
 
   @media (max-width: ${({ theme }) => theme.tablet}) {
     width: 100%;

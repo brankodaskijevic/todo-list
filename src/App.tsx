@@ -1,19 +1,34 @@
 import { ThemeProvider } from 'styled-components'
 import './App.css'
 import Header from './components/header/Header'
+import TodoFilter from './components/todo-filter-creation/TodoFilter'
 import TodoStats from './components/todo-stats/TodoStats'
+import Todos from './components/todos/Todos'
+import { Todo, TodoPriority } from './interfaces'
+import { v4 as uuidv4 } from 'uuid'
+import TodoForm from './components/todo-form/TodoForm'
 
 const theme = {
   tablet: '1024px',
   mobile: '768px'
 }
 
+const todos: Array<Todo> = [
+  { id: uuidv4(), text: 'Task 1', complete: false, priority: TodoPriority.HIGH },
+  { id: uuidv4(), text: 'Task 2', complete: true, priority: TodoPriority.LOW },
+  { id: uuidv4(), text: 'Task 3', complete: false, priority: TodoPriority.LOW },
+  { id: uuidv4(), text: 'Task 4', complete: true, priority: TodoPriority.MEDIUM },
+]
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <>
         <Header>Todo List</Header>
-        <TodoStats></TodoStats>
+        <TodoStats todos={todos} />
+        <TodoForm />
+        <TodoFilter />
+        <Todos todos={todos} />
       </>
     </ThemeProvider>
   )

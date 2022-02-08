@@ -1,10 +1,19 @@
-import { RingProgress } from '@mantine/core'
+import { FC, useState } from 'react'
+import { RingProgress, Text } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks'
 import { Container } from '../global/container/Container'
 import StatsLegend from './StatsLegend'
+import { Todo } from '../../interfaces'
 
-const TodoStats = () => {
+interface TodoStatsProps {
+  todos: Array<Todo>
+}
+
+const TodoStats: FC<TodoStatsProps> = ({
+  todos
+}) => {
   const matches = useMediaQuery('(max-width: 786px)')
+  const [totalTasks, setTotalTasks] = useState<number>(todos.length)
 
   const progressSections = [
     { value: 40, color: 'red' },
@@ -20,6 +29,7 @@ const TodoStats = () => {
         sections={progressSections}
       />
       <StatsLegend />
+      <Text size='xl'>Total tasks: {totalTasks}</Text>
     </Container>
   )
 }

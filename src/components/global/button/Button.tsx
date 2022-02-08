@@ -5,6 +5,7 @@ export const Button = styled.button`
   color: white;
   font-weight: bold;
   padding: 0.6em 1.2em;
+  margin: 0.4em;
   border: none;
   border-radius: 6px;
   font-size: 1em;
@@ -13,5 +14,10 @@ export const Button = styled.button`
   &:hover {
     transform: scale(0.98);
     filter: brightness(110%);
+  }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 0.5em;
+    font-weight: normal;
   }
 `

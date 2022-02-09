@@ -33,7 +33,6 @@ function App() {
         <TodoStats todos={todos} />
         <TodoForm todos={todos} />
         <TodoFilter />
-        <Todos todos={todos} />
       </>
     </ThemeProvider>
   )

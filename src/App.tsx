@@ -1,13 +1,16 @@
 import { useState } from 'react'
-import { ThemeProvider } from 'styled-components'
 import './App.css'
+
+import { ThemeProvider } from 'styled-components'
+
 import Header from './components/header/Header'
 import TodoFilter from './components/todo-filter-creation/TodoFilter'
 import TodoStats from './components/todo-stats/TodoStats'
 import Todos from './components/todos/Todos'
+import TodoForm from './components/todo-form/TodoForm'
+
 import { Todo, TodoPriority } from './interfaces'
 import { v4 as uuidv4 } from 'uuid'
-import TodoForm from './components/todo-form/TodoForm'
 
 const theme = {
   tablet: '1024px',

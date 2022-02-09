@@ -21,14 +21,14 @@ const todos = [
 function App() {
   const [tasks, setTasks] = useState(todos)
 
-  const addTaskHandler = (taskText) => {
+  const addTaskHandler = (taskText, priority) => {
     setTasks(prevTasks => {
       const updatedTasks = [...prevTasks]
       updatedTasks.unshift({
         id: uuidv4(),
         text: taskText,
         complete: false,
-        priority: 'MEDIUM'
+        priority: priority
       })
 
       return updatedTasks
@@ -57,3 +57,6 @@ function App() {
 }
 
 export default App
+
+
+

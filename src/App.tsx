@@ -6,7 +6,6 @@ import { ThemeProvider } from 'styled-components'
 import Header from './components/header/Header'
 import TodoFilter from './components/todo-filter-creation/TodoFilter'
 import TodoStats from './components/todo-stats/TodoStats'
-import Todos from './components/todos/Todos'
 import TodoForm from './components/todo-form/TodoForm'
 
 import { Todo, TodoPriority } from './interfaces'

@@ -5,6 +5,7 @@ import Header from './components/header/Header'
 import { v4 as uuidv4 } from 'uuid'
 import TasksList from './components/tasks/TasksList'
 import TaskInput from './components/tasks/TaskInput'
+import TasksFilter from './components/tasks/TasksFilter'
 
 const theme = {
   tablet: '1024px',
@@ -50,6 +51,7 @@ function App() {
       <>
         <Header>Todo List</Header>
         <TaskInput onAddTask={addTaskHandler} />
+        <TasksFilter todos={tasks} onFilteredTasks={setTasks} />
         {content}
       </>
     </ThemeProvider>

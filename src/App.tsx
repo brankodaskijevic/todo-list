@@ -42,7 +42,7 @@ function App() {
 
   if (tasks.length > 0) {
     content = (
-      <TasksList items={tasks} />
+      <TasksList todos={tasks} onSetTasks={setTasks} />
     )
   }
 

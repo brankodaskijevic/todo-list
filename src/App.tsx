@@ -7,14 +7,7 @@ import TasksList from './components/tasks/TasksList'
 import TaskInput from './components/tasks/TaskInput'
 import TasksFilter from './components/tasks/TasksFilter'
 import { setPriority } from 'os'
-
-type Priority = 'HIGH' | 'MEDIUM' | 'LOW'
-interface Todo {
-  id: string
-  text: string
-  complete: boolean
-  priority: Priority
-}
+import { Todo, Priority } from './types'
 
 const theme = {
   tablet: '1024px',

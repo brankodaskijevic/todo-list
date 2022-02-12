@@ -4,9 +4,7 @@ import './App.css'
 import { ThemeProvider } from 'styled-components'
 
 import Header from './components/header/Header'
-import TodoFilter from './components/todo-filter-creation/TodoFilter'
 import TodoStats from './components/todo-stats/TodoStats'
-import TodoForm from './components/todo-form/TodoForm'
 
 import { Todo, TodoPriority } from './interfaces'
 import { v4 as uuidv4 } from 'uuid'
@@ -31,8 +29,6 @@ function App() {
       <>
         <Header>Todo List</Header>
         <TodoStats todos={todos} />
-        <TodoForm todos={todos} />
-        <TodoFilter />
       </>
     </ThemeProvider>
   )

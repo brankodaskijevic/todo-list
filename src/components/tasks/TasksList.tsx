@@ -1,4 +1,4 @@
-import React, { FC, SetStateAction } from 'react'
+import { FC } from 'react'
 import { Todo } from '../../types'
 
 interface TaskListProps {

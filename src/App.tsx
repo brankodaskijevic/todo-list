@@ -6,13 +6,22 @@ import { v4 as uuidv4 } from 'uuid'
 import TasksList from './components/tasks/TasksList'
 import TaskInput from './components/tasks/TaskInput'
 import TasksFilter from './components/tasks/TasksFilter'
+import { setPriority } from 'os'
+
+type Priority = 'HIGH' | 'MEDIUM' | 'LOW'
+interface Todo {
+  id: string
+  text: string
+  complete: boolean
+  priority: Priority
+}
 
 const theme = {
   tablet: '1024px',
   mobile: '768px'
 }
 
-const todos = [
+const todos: Array<Todo> = [
   { id: uuidv4(), text: 'Task 1', complete: false, priority: 'HIGH' },
   { id: uuidv4(), text: 'Task 2', complete: true, priority: 'LOW' },
   { id: uuidv4(), text: 'Task 3', complete: false, priority: 'LOW' },
@@ -20,9 +29,9 @@ const todos = [
 ]
 
 function App() {
-  const [tasks, setTasks] = useState(todos)
+  const [tasks, setTasks] = useState<Array<Todo>>(todos)
 
-  const addTaskHandler = (taskText, priority) => {
+  const addTaskHandler = (taskText: string, priority: Priority) => {
     setTasks(prevTasks => {
       const updatedTasks = [...prevTasks]
       updatedTasks.unshift({
@@ -36,7 +45,7 @@ function App() {
     })
   }
 
-  let content = (
+  let content: JSX.Element = (
     <p>No tasks found</p>
   )
 

@@ -1,18 +1,28 @@
-import { useState } from 'react'
+import { ChangeEvent, FC, useState } from 'react'
+import { Todo } from '../../types'
 import { Button } from '../global/button/Button'
 
-const TasksFilter = ({ todos, onFilteredTasks }) => {
-  const [filterValue, setFilterValue] = useState('')
+interface TasksFilterProps {
+  todos: Array<Todo>
+  // onFilterTasks: React.Dispatch<React.SetStateAction<Array<Todo>>>
+  onFilteredTasks: Function
+}
 
-  const filterHandler = (event) => {
+const TasksFilter: FC<TasksFilterProps> = ({
+  todos,
+  onFilteredTasks
+}) => {
+  const [filterValue, setFilterValue] = useState<string>('')
+
+  const filterHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     setFilterValue(event.target.value)
   }
 
-  const submitFilterHandler = (event) => {
+  const submitFilterHandler = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     const filteredTasks =
-      todos.filter((task) => task.priority === filterValue)
+      todos.filter((todo: Todo) => todo.priority === filterValue)
 
     onFilteredTasks(filteredTasks)
   }

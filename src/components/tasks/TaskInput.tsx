@@ -1,19 +1,26 @@
-import { useState } from 'react'
+import React, { ChangeEvent, FC, useState } from 'react'
+import { Priority } from '../../types'
 import { Button } from '../global/button/Button'
 
-const TaskInput = ({ onAddTask }) => {
-  const [enteredTask, setEnteredTask] = useState('')
-  const [selectedPriorityType, setSelectedPriorityType] = useState('MEDIUM')
+interface TaskInputProps {
+  onAddTask: (text: string, priority: Priority) => void
+}
 
-  const taskInputChangeHandler = (event) => {
+const TaskInput: FC<TaskInputProps> = ({
+  onAddTask
+}) => {
+  const [enteredTask, setEnteredTask] = useState<string>('')
+  const [selectedPriorityType, setSelectedPriorityType] = useState<Priority>('MEDIUM')
+
+  const taskInputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setEnteredTask(event.target.value)
   }
 
-  const prioritySelectChangeHandler = (event) => {
-    setSelectedPriorityType(event.target.value)
+  const prioritySelectChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+    setSelectedPriorityType(event.target.value as Priority)
   }
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     onAddTask(enteredTask, selectedPriorityType)

@@ -21,17 +21,26 @@ const TasksFilter: FC<TasksFilterProps> = ({
   const submitFilterHandler = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const filteredTasks =
-      todos.filter((todo: Todo) => todo.priority === filterValue)
+    const fullTodoList: Array<Todo> = [...todos]
 
-    onFilteredTasks(filteredTasks)
+    if (filterValue === 'ALL') {
+      console.log(filterValue)
+      onFilteredTasks((prevTasks) => {
+        return [...prevTasks, fullTodoList]
+      })
+    } else {
+      const filteredTasks =
+        fullTodoList.filter((todo: Todo) => todo.priority === filterValue)
+
+      onFilteredTasks(filteredTasks)
+    }
   }
 
   return (
     <>
       <form onSubmit={submitFilterHandler}>
         <select value={filterValue} onChange={filterHandler}>
-          <option>Filter tasks</option>
+          <option value='ALL'>All</option>
           <option value="HIGH">High</option>
           <option value="MEDIUM">Medium</option>
           <option value="LOW">Low</option>

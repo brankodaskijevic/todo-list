@@ -22,10 +22,11 @@ const todos: Array<Todo> = [
 ]
 
 function App() {
-  const [tasks, setTasks] = useState<Array<Todo>>(todos)
+  const [initalTasks, setInitalTasks] = useState<Array<Todo>>(todos)
+  const [filteredTasks, setFilteredTasks] = useState<Array<Todo>>(todos)
 
   const addTaskHandler = (taskText: string, priority: Priority) => {
-    setTasks(prevTasks => {
+    setInitalTasks(prevTasks => {
       const updatedTasks = [...prevTasks]
       updatedTasks.unshift({
         id: uuidv4(),
@@ -42,9 +43,9 @@ function App() {
     <p>No tasks found</p>
   )
 
-  if (tasks.length > 0) {
+  if (initalTasks.length > 0) {
     content = (
-      <TasksList todos={tasks} onSetTasks={setTasks} />
+      <TasksList todos={filteredTasks} onSetTasks={setInitalTasks} />
     )
   }
 
@@ -53,7 +54,7 @@ function App() {
       <>
         <Header>Todo List</Header>
         <TaskInput onAddTask={addTaskHandler} />
-        <TasksFilter todos={tasks} onFilteredTasks={setTasks} />
+        <TasksFilter todos={initalTasks} onFilteredTasks={setFilteredTasks} />
         {content}
       </>
     </ThemeProvider>

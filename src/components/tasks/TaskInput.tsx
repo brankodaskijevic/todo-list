@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState } from 'react'
+import { ChangeEvent, FC, useState } from 'react'
 import { Priority } from '../../types'
 import { Button } from '../global/button/Button'
 

@@ -23,9 +23,6 @@ const TasksFilter: FC<TasksFilterProps> = ({
 
     const fullTodoList: Array<Todo> = [...todos]
 
-    // const filteredTasks =
-    //   fullTodoList.filter((todo: Todo) => todo.priority === filterValue)
-
     const filteredTasks =
       fullTodoList.filter((todo: Todo) =>
         filterValue === 'ALL' ? todo : todo.priority === filterValue)

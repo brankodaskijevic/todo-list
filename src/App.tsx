@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import './App.css'
 import Header from './components/header/Header'
@@ -25,6 +25,10 @@ function App() {
   const [initalTasks, setInitalTasks] = useState<Array<Todo>>(todos)
   const [filteredTasks, setFilteredTasks] = useState<Array<Todo>>(todos)
 
+  useEffect(() => {
+    setFilteredTasks(initalTasks)
+  }, [initalTasks])
+
   const addTaskHandler = (taskText: string, priority: Priority) => {
     setInitalTasks(prevTasks => {
       const updatedTasks = [...prevTasks]
@@ -37,8 +41,6 @@ function App() {
 
       return updatedTasks
     })
-    setFilteredTasks(initalTasks)
-
   }
 
   let content: JSX.Element = (
@@ -47,7 +49,7 @@ function App() {
 
   if (initalTasks.length > 0) {
     content = (
-      <TasksList todos={filteredTasks} onSetTasks={setFilteredTasks} />
+      <TasksList todos={filteredTasks} onSetTasks={setInitalTasks} />
     )
   }
 

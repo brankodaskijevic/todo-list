@@ -11,6 +11,7 @@ const TasksList: FC<TaskListProps> = ({
   todos,
   onSetTasks
 }) => {
+  console.log('list render')
   const deleteItemHandler = (id: string) => {
     const newTasksList =
       todos.filter((todo: Todo) => todo.id !== id)

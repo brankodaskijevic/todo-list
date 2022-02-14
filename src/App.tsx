@@ -37,6 +37,8 @@ function App() {
 
       return updatedTasks
     })
+    setFilteredTasks(initalTasks)
+
   }
 
   let content: JSX.Element = (
@@ -45,7 +47,7 @@ function App() {
 
   if (initalTasks.length > 0) {
     content = (
-      <TasksList todos={filteredTasks} onSetTasks={setInitalTasks} />
+      <TasksList todos={filteredTasks} onSetTasks={setFilteredTasks} />
     )
   }
 
@@ -62,6 +64,3 @@ function App() {
 }
 
 export default App
-
-
-

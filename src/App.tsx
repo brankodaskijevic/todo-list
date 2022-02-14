@@ -4,7 +4,6 @@ import './App.css'
 import { ThemeProvider } from 'styled-components'
 
 import Header from './components/header/Header'
-import TodoStats from './components/todo-stats/TodoStats'
 
 import { Todo, TodoPriority } from './interfaces'
 import { v4 as uuidv4 } from 'uuid'
@@ -28,7 +27,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <>
         <Header>Todo List</Header>
-        <TodoStats todos={todos} />
       </>
     </ThemeProvider>
   )

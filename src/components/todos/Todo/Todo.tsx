@@ -1,6 +1,8 @@
+import { FC } from 'react'
 import { Todo } from '../../../types'
+import { TodoProps } from './interfaces'
 
-const Task = ({
+const Task: FC<TodoProps> = ({
   todos,
   onSetTasks
 }) => {

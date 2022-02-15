@@ -6,7 +6,6 @@ const Task: FC<TodoProps> = ({
   todos,
   onSetTasks
 }) => {
-  console.log('list render')
   const deleteItemHandler = (id: string) => {
     const newTasksList =
       todos.filter((todo: Todo) => todo.id !== id)
@@ -18,7 +17,7 @@ const Task: FC<TodoProps> = ({
     <>
       {todos.map((item: Todo) => (
         <li key={item.id}>
-          {item.text} - {item.priority}
+          <p>{item.text}</p> - <p>{item.priority}</p>
           <button onClick={deleteItemHandler.bind(null, item.id)}>X</button>
         </li>
       ))}

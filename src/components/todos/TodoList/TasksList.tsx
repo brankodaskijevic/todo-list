@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Todo } from '../../../types'
-import Todo from '../Todo/Todo'
+import Task from '../Todo/Todo'
 
 interface TaskListProps {
   todos: Array<Todo>

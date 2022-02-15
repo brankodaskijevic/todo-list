@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, useState } from 'react'
-import { Todo } from '../../types'
-import { Button } from '../global/button/Button'
+import { Todo } from '../../../types'
+import { Button } from '../../global/button/Button'
 
 interface TasksFilterProps {
   todos: Array<Todo>

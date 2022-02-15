@@ -4,9 +4,9 @@ import './App.css'
 
 import Header from './components/header/Header'
 import { v4 as uuidv4 } from 'uuid'
-import TasksList from './components/tasks/TasksList'
-import TaskInput from './components/tasks/TaskInput'
-import TasksFilter from './components/tasks/TasksFilter'
+import TasksList from './components/todos/TasksList'
+import TaskInput from './components/todos/TaskInput'
+import TasksFilter from './components/todos/TasksFilter'
 import { Todo, Priority } from './types'
 
 const theme = {

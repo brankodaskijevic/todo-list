@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { Todo } from '../../types'
+import Task from './Task'
 
 interface TaskListProps {
   todos: Array<Todo>
@@ -22,12 +23,7 @@ const TasksList: FC<TaskListProps> = ({
   return (
     <ul>
       {console.log(todos)}
-      {todos.map((item: Todo) => (
-        <li key={item.id}>
-          {item.text} - {item.priority}
-          <button onClick={deleteItemHandler.bind(null, item.id)}>X</button>
-        </li>
-      ))}
+      <Task todos={todos} onSetTasks={onSetTasks} />
     </ul>
   )
 }

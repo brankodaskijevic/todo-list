@@ -1,10 +1,9 @@
-import React from 'react';
-import { render, RenderResult } from '@testing-library/react';
+import { cleanup, render, RenderResult } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { v4 as uuidv4 } from 'uuid'
 import Todo from './Todo'
 import { Todo as Task } from '../../../types';
-import { v4 as uuidv4 } from 'uuid'
-import { act } from 'react-dom/test-utils';
-import userEvent from '@testing-library/user-event';
+import { TodoProps } from './interfaces';
 
 describe('Todo', () => {
   let renderResult: RenderResult
@@ -14,8 +13,17 @@ describe('Todo', () => {
     { id: uuidv4(), text: 'test todo 1', complete: false, priority: 'HIGH' },
   ]
 
+  const todoProps: TodoProps = {
+    todos: todos,
+    onSetTasks: onSetTasks
+  }
+
   beforeEach(() => {
-    renderResult = render(<Todo todos={todos} onSetTasks={onSetTasks} />)
+    renderResult = render(<Todo {...todoProps} />)
+  })
+
+  afterAll(() => {
+    cleanup()
   })
 
   it('renders Todo component with right properties', () => {

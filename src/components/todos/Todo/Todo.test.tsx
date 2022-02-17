@@ -14,8 +14,8 @@ describe('Todo', () => {
   ]
 
   const todoProps: TodoProps = {
-    todos: todos,
-    onSetTasks: onSetTasks
+    todos,
+    onSetTasks
   }
 
   beforeEach(() => {

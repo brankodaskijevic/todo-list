@@ -1,12 +1,7 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { Todo } from '../../../types'
 import { Button } from '../../global/button/Button'
-
-interface TasksFilterProps {
-  todos: Array<Todo>
-  // onFilterTasks: React.Dispatch<React.SetStateAction<Array<Todo>>>
-  onFilteredTasks: Function
-}
+import { TasksFilterProps } from './interfaces'
 
 const TasksFilter: FC<TasksFilterProps> = ({
   todos,

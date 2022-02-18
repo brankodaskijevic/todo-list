@@ -53,7 +53,7 @@ describe('TodoFilter', () => {
     expect(onFilteredTasks).toHaveBeenCalled()
   })
 
-  it('shoul render todos with priority HIGH if selected in the dropdown', () => {
+  // it('shoul render todos with priority HIGH if selected in the dropdown', () => {
     // renderTodoList = render(<TasksList todos={todos} onSetTasks={onSetTasks}  />)
 
     // const filterOptionsDropdown: Element = renderResult.getByText('All')
@@ -66,5 +66,5 @@ describe('TodoFilter', () => {
     // userEvent.click(filterButton)
 
     // expect(filterdTaskText).toBeInTheDocument()
-  })
+  // })
 })

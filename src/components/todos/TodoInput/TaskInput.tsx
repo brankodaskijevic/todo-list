@@ -1,10 +1,7 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { Priority } from '../../../types'
 import { Button } from '../../global/button/Button'
-
-interface TaskInputProps {
-  onAddTask: (text: string, priority: Priority) => void
-}
+import { TaskInputProps } from './interfaces'
 
 const TaskInput: FC<TaskInputProps> = ({
   onAddTask

@@ -1,5 +1,4 @@
 import { cleanup, render, RenderResult } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { v4 as uuidv4 } from 'uuid'
 import TasksList from './TasksList'
 import { Todo as Task } from '../../../types';

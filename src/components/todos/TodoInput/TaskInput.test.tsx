@@ -1,8 +1,6 @@
 import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { v4 as uuidv4 } from 'uuid'
 import TaskInput from './TaskInput'
-import { Todo as Task } from '../../../types';
 import { TaskInputProps } from './interfaces';
 
 describe('TodoInput', () => {

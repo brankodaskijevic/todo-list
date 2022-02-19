@@ -25,7 +25,7 @@ const TaskInput: FC<TaskInputProps> = ({
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <input type="text" onChange={taskInputChangeHandler} />
+      <input type="text" placeholder='Todo text' onChange={taskInputChangeHandler} />
       <small>Select task priority</small>
       <select value={selectedPriorityType} onChange={prioritySelectChangeHandler}>
         <option value="HIGH">High</option>

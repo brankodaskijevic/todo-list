@@ -3,19 +3,15 @@ import userEvent from '@testing-library/user-event'
 import { v4 as uuidv4 } from 'uuid'
 import TaskInput from './TaskInput'
 import { Todo as Task } from '../../../types';
-import { TodoProps } from './interfaces';
+import { TaskInputProps } from './interfaces';
 
 describe('TodoInput', () => {
   let renderResult: RenderResult
 
-  const onSetTasks: jest.Mock = jest.fn()
-  const todos: Array<Task> = [
-    { id: uuidv4(), text: 'test todo 1', complete: false, priority: 'HIGH' },
-  ]
+  const onAddTask: jest.Mock = jest.fn()
 
-  const todoProps: TodoProps = {
-    todos,
-    onSetTasks
+  const todoProps: TaskInputProps = {
+    onAddTask
   }
 
   beforeEach(() => {
@@ -26,19 +22,15 @@ describe('TodoInput', () => {
     cleanup()
   })
 
-  it('renders Todo component with right properties', () => {
-    const todoText: Element = renderResult.getByText('test todo 1')
-    const todoPriority: Element = renderResult.getByText('HIGH')
+  it('renders TodoInput component with right properties', () => {
+    const input: Element = renderResult.getByPlaceholderText('Todo text')
+    const selectText: Element = renderResult.getByText('Select task priority')
+    const defaultPrioritySelected = renderResult.getByText('Medium')
+    const button: Element = renderResult.getByText('Add task')
 
-    expect(todoText).toBeInTheDocument()
-    expect(todoPriority).toBeInTheDocument()
-  })
-
-  it('should delete item when user clicks on X button', () => {
-    const deleteButton: Element = renderResult.getByText('X')
-
-    userEvent.click(deleteButton)
-
-    expect(onSetTasks).toHaveBeenCalled()
+    expect(input).toBeInTheDocument()
+    expect(selectText).toBeInTheDocument()
+    expect(defaultPrioritySelected).toBeInTheDocument()
+    expect(button).toBeInTheDocument()
   })
 })

@@ -1,7 +1,7 @@
 import { Todo } from '../../../types'
 
-export interface TasksFilterProps {
+export interface TodosFilterProps {
   todos: Array<Todo>
   // onFilterTasks: React.Dispatch<React.SetStateAction<Array<Todo>>>
-  onFilteredTasks: Function
+  onFilteredTodos: Function
 }

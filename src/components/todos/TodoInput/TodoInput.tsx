@@ -1,16 +1,16 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { Priority } from '../../../types'
 import { Button } from '../../global/button/Button'
-import { TaskInputProps } from './interfaces'
+import { TodoInputProps } from './interfaces'
 
-const TaskInput: FC<TaskInputProps> = ({
-  onAddTask
+const TodoInput: FC<TodoInputProps> = ({
+  onAddTodo
 }) => {
-  const [enteredTask, setEnteredTask] = useState<string>('')
+  const [enteredTodo, setEnteredTodo] = useState<string>('')
   const [selectedPriorityType, setSelectedPriorityType] = useState<Priority>('MEDIUM')
 
   const taskInputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setEnteredTask(event.target.value)
+    setEnteredTodo(event.target.value)
   }
 
   const prioritySelectChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -20,21 +20,21 @@ const TaskInput: FC<TaskInputProps> = ({
   const formSubmitHandler = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    onAddTask(enteredTask, selectedPriorityType)
+    onAddTodo(enteredTodo, selectedPriorityType)
   }
 
   return (
     <form onSubmit={formSubmitHandler}>
       <input type="text" placeholder='Todo text' onChange={taskInputChangeHandler} />
-      <small>Select task priority</small>
+      <small>Select todo priority</small>
       <select value={selectedPriorityType} onChange={prioritySelectChangeHandler}>
         <option value="HIGH">High</option>
         <option value="MEDIUM">Medium</option>
         <option value="LOW">Low</option>
       </select>
-      <Button type='submit'>Add task</Button>
+      <Button type='submit'>Add todo</Button>
     </form>
   )
 }
 
-export default TaskInput
+export default TodoInput

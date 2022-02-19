@@ -1,25 +1,25 @@
 import { cleanup, render, RenderResult } from '@testing-library/react'
 import { v4 as uuidv4 } from 'uuid'
-import TasksList from './TasksList'
-import { Todo as Task } from '../../../types';
-import { TaskListProps } from './interfaces'
+import TodoList from './TodoList'
+import { Todo } from '../../../types';
+import { TodoListProps } from './interfaces'
 
 describe('TodoList', () => {
   let renderResult: RenderResult
 
-  const onSetTasks: jest.Mock = jest.fn()
-  const todos: Array<Task> = [
+  const onSetTodos: jest.Mock = jest.fn()
+  const todos: Array<Todo> = [
     { id: uuidv4(), text: 'test todo 1', complete: false, priority: 'HIGH' },
     { id: uuidv4(), text: 'test todo 2', complete: false, priority: 'LOW' },
   ]
 
-  const todoListProps: TaskListProps = {
+  const todoListProps: TodoListProps = {
     todos,
-    onSetTasks
+    onSetTodos
   }
 
   beforeEach(() => {
-    renderResult = render(<TasksList {...todoListProps} />)
+    renderResult = render(<TodoList {...todoListProps} />)
   })
 
   afterAll(() => {

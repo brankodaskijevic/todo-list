@@ -1,21 +1,21 @@
 import { FC } from 'react'
-import { Todo } from '../../../types'
+import { Todo as TodoT } from '../../../types'
 import { TodoProps } from './interfaces'
 
-const Task: FC<TodoProps> = ({
+const Todo: FC<TodoProps> = ({
   todos,
-  onSetTasks
+  onSetTodos
 }) => {
   const deleteItemHandler = (id: string) => {
     const newTasksList =
-      todos.filter((todo: Todo) => todo.id !== id)
+      todos.filter((todo: TodoT) => todo.id !== id)
 
-    onSetTasks(newTasksList)
+    onSetTodos(newTasksList)
   }
 
   return (
     <>
-      {todos.map((item: Todo) => (
+      {todos.map((item: TodoT) => (
         <li key={item.id}>
           <p>{item.text}</p> - <p>{item.priority}</p>
           <button onClick={deleteItemHandler.bind(null, item.id)}>X</button>
@@ -25,4 +25,4 @@ const Task: FC<TodoProps> = ({
   )
 }
 
-export default Task
+export default Todo

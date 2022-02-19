@@ -1,5 +1,5 @@
 import { Priority } from '../../../types'
 
-export interface TaskInputProps {
-  onAddTask: (text: string, priority: Priority) => void
+export interface TodoInputProps {
+  onAddTodo: (text: string, priority: Priority) => void
 }

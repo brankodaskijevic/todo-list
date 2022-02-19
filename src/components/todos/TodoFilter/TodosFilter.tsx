@@ -1,11 +1,11 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { Todo } from '../../../types'
 import { Button } from '../../global/button/Button'
-import { TasksFilterProps } from './interfaces'
+import { TodosFilterProps } from './interfaces'
 
-const TasksFilter: FC<TasksFilterProps> = ({
+const TodosFilter: FC<TodosFilterProps> = ({
   todos,
-  onFilteredTasks
+  onFilteredTodos
 }) => {
   const [filterValue, setFilterValue] = useState<string>('')
 
@@ -18,11 +18,11 @@ const TasksFilter: FC<TasksFilterProps> = ({
 
     const fullTodoList: Array<Todo> = [...todos]
 
-    const filteredTasks =
+    const filteredTodos =
       fullTodoList.filter((todo: Todo) =>
         filterValue === 'ALL' ? todo : todo.priority === filterValue)
 
-    onFilteredTasks(filteredTasks)
+    onFilteredTodos(filteredTodos)
   }
 
   return (
@@ -40,4 +40,4 @@ const TasksFilter: FC<TasksFilterProps> = ({
   )
 }
 
-export default TasksFilter
+export default TodosFilter

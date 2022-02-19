@@ -1,7 +1,7 @@
 import { Todo } from '../../../types'
 
-export interface TaskListProps {
+export interface TodoListProps {
   todos: Array<Todo>
   // onSetTasks: React.Dispatch<React.SetStateAction<Todo[]>>
-  onSetTasks: Function
+  onSetTodos: Function
 }

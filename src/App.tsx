@@ -4,9 +4,9 @@ import './App.css'
 
 import Header from './components/header/Header'
 import { v4 as uuidv4 } from 'uuid'
-import TasksList from './components/todos/TodoList/TasksList'
-import TaskInput from './components/todos/TodoInput/TaskInput'
-import TasksFilter from './components/todos/TodoFilter/TasksFilter'
+import TodoList from './components/todos/TodoList/TodoList'
+import TaskInput from './components/todos/TodoInput/TodoInput'
+import TasksFilter from './components/todos/TodoFilter/TodosFilter'
 import { Todo, Priority } from './types'
 
 const theme = {
@@ -49,7 +49,7 @@ function App() {
 
   if (initalTasks.length > 0) {
     content = (
-      <TasksList todos={filteredTasks} onSetTasks={setInitalTasks} />
+      <TodoList todos={filteredTasks} onSetTodos={setInitalTasks} />
     )
   }
 
@@ -57,8 +57,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <>
         <Header>Todo List</Header>
-        <TaskInput onAddTask={addTaskHandler} />
-        <TasksFilter todos={initalTasks} onFilteredTasks={setFilteredTasks} />
+        <TaskInput onAddTodo={addTaskHandler} />
+        <TasksFilter todos={initalTasks} onFilteredTodos={setFilteredTasks} />
         {content}
       </>
     </ThemeProvider>

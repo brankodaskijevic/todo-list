@@ -1,17 +1,17 @@
 import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import TaskInput from './TaskInput'
-import { TaskInputProps } from './interfaces';
+import TodoInput from './TodoInput'
+import { TodoInputProps } from './interfaces';
 
 describe('TodoInput', () => {
-  const onAddTask: jest.Mock = jest.fn()
+  const onAddTodo: jest.Mock = jest.fn()
 
-  const todoProps: TaskInputProps = {
-    onAddTask
+  const todoProps: TodoInputProps = {
+    onAddTodo
   }
 
   beforeEach(() => {
-    render(<TaskInput {...todoProps} />)
+    render(<TodoInput {...todoProps} />)
   })
 
   afterAll(() => {
@@ -20,9 +20,9 @@ describe('TodoInput', () => {
 
   it('renders TodoInput component with right properties', () => {
     const input: Element = screen.getByPlaceholderText('Todo text')
-    const selectText: Element = screen.getByText('Select task priority')
+    const selectText: Element = screen.getByText('Select todo priority')
     const defaultPrioritySelected = screen.getByText('Medium')
-    const button: Element = screen.getByText('Add task')
+    const button: Element = screen.getByText('Add todo')
 
     expect(input).toBeInTheDocument()
     expect(selectText).toBeInTheDocument()
@@ -30,11 +30,11 @@ describe('TodoInput', () => {
     expect(button).toBeInTheDocument()
   })
 
-  it('should trigger "Add task" button when clicked', () => {
-    const button: Element = screen.getByText('Add task')
+  it('should trigger "Add todo" button when clicked', () => {
+    const button: Element = screen.getByText('Add todo')
 
     userEvent.click(button)
 
-    expect(onAddTask).toHaveBeenCalled()
+    expect(onAddTodo).toHaveBeenCalled()
   })
 })

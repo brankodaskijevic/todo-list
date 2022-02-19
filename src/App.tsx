@@ -5,8 +5,8 @@ import './App.css'
 import Header from './components/header/Header'
 import { v4 as uuidv4 } from 'uuid'
 import TodoList from './components/todos/TodoList/TodoList'
-import TaskInput from './components/todos/TodoInput/TodoInput'
-import TasksFilter from './components/todos/TodoFilter/TodosFilter'
+import TodoInput from './components/todos/TodoInput/TodoInput'
+import TodosFilter from './components/todos/TodoFilter/TodosFilter'
 import { Todo, Priority } from './types'
 
 const theme = {
@@ -22,24 +22,24 @@ const todos: Array<Todo> = [
 ]
 
 function App() {
-  const [initalTasks, setInitalTasks] = useState<Array<Todo>>(todos)
-  const [filteredTasks, setFilteredTasks] = useState<Array<Todo>>(todos)
+  const [initalTodos, setInitalTodos] = useState<Array<Todo>>(todos)
+  const [filteredTodos, setFilteredTodos] = useState<Array<Todo>>(todos)
 
   useEffect(() => {
-    setFilteredTasks(initalTasks)
-  }, [initalTasks])
+    setFilteredTodos(initalTodos)
+  }, [initalTodos])
 
-  const addTaskHandler = (taskText: string, priority: Priority) => {
-    setInitalTasks(prevTasks => {
-      const updatedTasks = [...prevTasks]
-      updatedTasks.unshift({
+  const addTaskHandler = (todoText: string, priority: Priority) => {
+    setInitalTodos(prevTodos => {
+      const updatedTodos = [...prevTodos]
+      updatedTodos.unshift({
         id: uuidv4(),
-        text: taskText,
+        text: todoText,
         complete: false,
         priority: priority
       })
 
-      return updatedTasks
+      return updatedTodos
     })
   }
 
@@ -47,9 +47,9 @@ function App() {
     <p>No tasks found</p>
   )
 
-  if (initalTasks.length > 0) {
+  if (initalTodos.length > 0) {
     content = (
-      <TodoList todos={filteredTasks} onSetTodos={setInitalTasks} />
+      <TodoList todos={filteredTodos} onSetTodos={setInitalTodos} />
     )
   }
 
@@ -57,8 +57,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <>
         <Header>Todo List</Header>
-        <TaskInput onAddTodo={addTaskHandler} />
-        <TasksFilter todos={initalTasks} onFilteredTodos={setFilteredTasks} />
+        <TodoInput onAddTodo={addTaskHandler} />
+        <TodosFilter todos={initalTodos} onFilteredTodos={setFilteredTodos} />
         {content}
       </>
     </ThemeProvider>

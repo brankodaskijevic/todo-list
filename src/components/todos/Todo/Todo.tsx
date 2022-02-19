@@ -7,10 +7,10 @@ const Todo: FC<TodoProps> = ({
   onSetTodos
 }) => {
   const deleteItemHandler = (id: string) => {
-    const newTasksList =
+    const newTodosList =
       todos.filter((todo: TodoT) => todo.id !== id)
 
-    onSetTodos(newTasksList)
+    onSetTodos(newTodosList)
   }
 
   return (

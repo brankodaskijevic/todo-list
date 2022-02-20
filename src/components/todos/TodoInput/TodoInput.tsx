@@ -1,5 +1,6 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { Priority } from '../../../types'
+import { v4 as uuidv4 } from 'uuid'
 import { Button } from '../../global/button/Button'
 import { TodoInputProps } from './interfaces'
 
@@ -20,12 +21,25 @@ const TodoInput: FC<TodoInputProps> = ({
   const formSubmitHandler = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    onAddTodo(enteredTodo, selectedPriorityType)
+    onAddTodo((prevTodos) => {
+      const updatedTodos = [...prevTodos]
+      updatedTodos.unshift({
+        id: uuidv4(),
+        text: enteredTodo,
+        complete: false,
+        priority: selectedPriorityType
+      })
+
+      return updatedTodos
+    })
+
+    setEnteredTodo('')
+    setSelectedPriorityType('MEDIUM')
   }
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <input type="text" placeholder='Todo text' onChange={taskInputChangeHandler} />
+      <input type="text" placeholder='Todo text' value={enteredTodo} onChange={taskInputChangeHandler} />
       <small>Select todo priority</small>
       <select value={selectedPriorityType} onChange={prioritySelectChangeHandler}>
         <option value="HIGH">High</option>

@@ -1,5 +1,5 @@
-import { Priority } from '../../../types'
+import { Todo } from '../../../types'
 
 export interface TodoInputProps {
-  onAddTodo: (text: string, priority: Priority) => void
+  onAddTodo: React.Dispatch<React.SetStateAction<Todo[]>>
 }

@@ -29,20 +29,6 @@ function App() {
     setFilteredTodos(initalTodos)
   }, [initalTodos])
 
-  const addTaskHandler = (todoText: string, priority: Priority) => {
-    setInitalTodos(prevTodos => {
-      const updatedTodos = [...prevTodos]
-      updatedTodos.unshift({
-        id: uuidv4(),
-        text: todoText,
-        complete: false,
-        priority: priority
-      })
-
-      return updatedTodos
-    })
-  }
-
   let content: JSX.Element = (
     <p>No tasks found</p>
   )
@@ -57,7 +43,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <>
         <Header>Todo List</Header>
-        <TodoInput onAddTodo={addTaskHandler} />
+        <TodoInput onAddTodo={setInitalTodos} />
         <TodosFilter todos={initalTodos} onFilteredTodos={setFilteredTodos} />
         {content}
       </>

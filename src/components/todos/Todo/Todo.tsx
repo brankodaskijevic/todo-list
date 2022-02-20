@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { saveTodoToLocalStorage } from '../../../utils/storage/local-storage-utils'
 import { Todo as TodoT } from '../../../types'
 import { TodoProps } from './interfaces'
 
@@ -11,6 +12,7 @@ const Todo: FC<TodoProps> = ({
       todos.filter((todo: TodoT) => todo.id !== id)
 
     onSetTodos(newTodosList)
+    saveTodoToLocalStorage('todos', newTodosList)
   }
 
   return (

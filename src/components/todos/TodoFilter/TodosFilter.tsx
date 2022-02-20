@@ -16,7 +16,7 @@ const TodosFilter: FC<TodosFilterProps> = ({
   const submitFilterHandler = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const fullTodoList: Array<Todo> = [...todos]
+    const fullTodoList: Todo[] = [...todos]
 
     const filteredTodos =
       fullTodoList.filter((todo: Todo) =>

@@ -5,7 +5,7 @@ export function saveTodoToLocalStorage (key: string, todos: Array<Todo>): void {
 }
 
 export function getTodosFromLocalStorage (key: string): Array<Todo> {
-  let todos = JSON.parse(localStorage.getItem(key) || '[]')
+  let todos: Todo[] = JSON.parse(localStorage.getItem(key) || '[]')
 
   return todos
 }

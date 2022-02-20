@@ -1,6 +1,6 @@
 import { Todo } from '../../../types'
 
 export interface TodoProps {
-  todos: Array<Todo>
+  todos: Todo[]
   onSetTodos: Function
 }

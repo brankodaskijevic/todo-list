@@ -33,13 +33,13 @@ const TodoInput: FC<TodoInputProps> = ({
     }
 
     onAddTodo((prevTodos) => {
-      const updatedTodos = [...prevTodos]
+      const updatedTodos: Todo[] = [...prevTodos]
       updatedTodos.unshift(newTodo)
 
       return updatedTodos
     })
 
-    let todos: Array<Todo> = getTodosFromLocalStorage('todos')
+    let todos: Todo[] = getTodosFromLocalStorage('todos')
     todos.unshift(newTodo)
 
     saveTodoToLocalStorage('todos', todos)

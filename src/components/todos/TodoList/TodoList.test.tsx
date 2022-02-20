@@ -8,7 +8,7 @@ describe('TodoList', () => {
   let renderResult: RenderResult
 
   const onSetTodos: jest.Mock = jest.fn()
-  const todos: Array<Todo> = [
+  const todos: Todo[] = [
     { id: uuidv4(), text: 'test todo 1', complete: false, priority: 'HIGH' },
     { id: uuidv4(), text: 'test todo 2', complete: false, priority: 'LOW' },
   ]

@@ -9,7 +9,7 @@ describe('Todo', () => {
   let renderResult: RenderResult
 
   const onSetTodos: jest.Mock = jest.fn()
-  const todos: Array<Task> = [
+  const todos: Task[] = [
     { id: uuidv4(), text: 'test todo 1', complete: false, priority: 'HIGH' },
   ]
 

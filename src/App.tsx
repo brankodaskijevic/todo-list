@@ -17,8 +17,8 @@ const theme = {
 function App() {
   const todos = getTodosFromLocalStorage('todos')
 
-  const [initalTodos, setInitalTodos] = useState<Array<Todo>>(todos)
-  const [filteredTodos, setFilteredTodos] = useState<Array<Todo>>(todos)
+  const [initalTodos, setInitalTodos] = useState<Todo[]>(todos)
+  const [filteredTodos, setFilteredTodos] = useState<Todo[]>(todos)
 
   useEffect(() => {
     setFilteredTodos(initalTodos)

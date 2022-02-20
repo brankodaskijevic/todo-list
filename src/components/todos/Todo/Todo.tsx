@@ -7,7 +7,7 @@ const Todo: FC<TodoProps> = ({
   onSetTodos
 }) => {
   const deleteItemHandler = (id: string) => {
-    const newTodosList =
+    const newTodosList: TodoT[] =
       todos.filter((todo: TodoT) => todo.id !== id)
 
     onSetTodos(newTodosList)

@@ -3,25 +3,20 @@ import { ThemeProvider } from 'styled-components'
 import './App.css'
 
 import Header from './components/header/Header'
-import { v4 as uuidv4 } from 'uuid'
 import TodoList from './components/todos/TodoList/TodoList'
 import TodoInput from './components/todos/TodoInput/TodoInput'
 import TodosFilter from './components/todos/TodoFilter/TodosFilter'
 import { Todo } from './types'
+import { getTodosFromLocalStorage } from './utils/storage/local-storage-utils'
 
 const theme = {
   tablet: '1024px',
   mobile: '768px'
 }
 
-const todos: Array<Todo> = [
-  { id: uuidv4(), text: 'Task 1', complete: false, priority: 'HIGH' },
-  { id: uuidv4(), text: 'Task 2', complete: true, priority: 'LOW' },
-  { id: uuidv4(), text: 'Task 3', complete: false, priority: 'LOW' },
-  { id: uuidv4(), text: 'Task 4', complete: true, priority: 'MEDIUM' },
-]
-
 function App() {
+  const todos = getTodosFromLocalStorage('todos')
+
   const [initalTodos, setInitalTodos] = useState<Array<Todo>>(todos)
   const [filteredTodos, setFilteredTodos] = useState<Array<Todo>>(todos)
 

@@ -1,8 +1,12 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Button } from '../../global/button/Button'
-import { Priority } from '../../../types'
+import { Todo, Priority } from '../../../types'
 import { TodoInputProps } from './interfaces'
+import {
+  getTodosFromLocalStorage,
+  saveTodoToLocalStorage
+} from '../../../utils/storage/local-storage-utils'
 
 const TodoInput: FC<TodoInputProps> = ({
   onAddTodo
@@ -21,17 +25,24 @@ const TodoInput: FC<TodoInputProps> = ({
   const formSubmitHandler = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
 
+    const newTodo: Todo = {
+      id: uuidv4(),
+      text: enteredTodo,
+      complete: false,
+      priority: selectedPriorityType
+    }
+
     onAddTodo((prevTodos) => {
       const updatedTodos = [...prevTodos]
-      updatedTodos.unshift({
-        id: uuidv4(),
-        text: enteredTodo,
-        complete: false,
-        priority: selectedPriorityType
-      })
+      updatedTodos.unshift(newTodo)
 
       return updatedTodos
     })
+
+    let todos: Array<Todo> = getTodosFromLocalStorage('todos')
+    todos.unshift(newTodo)
+
+    saveTodoToLocalStorage('todos', todos)
 
     setEnteredTodo('')
     setSelectedPriorityType('MEDIUM')

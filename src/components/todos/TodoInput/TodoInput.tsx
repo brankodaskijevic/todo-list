@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, useState } from 'react'
-import { Priority } from '../../../types'
 import { v4 as uuidv4 } from 'uuid'
 import { Button } from '../../global/button/Button'
+import { Priority } from '../../../types'
 import { TodoInputProps } from './interfaces'
 
 const TodoInput: FC<TodoInputProps> = ({

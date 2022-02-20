@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid'
 import TodoList from './components/todos/TodoList/TodoList'
 import TodoInput from './components/todos/TodoInput/TodoInput'
 import TodosFilter from './components/todos/TodoFilter/TodosFilter'
-import { Todo, Priority } from './types'
+import { Todo } from './types'
 
 const theme = {
   tablet: '1024px',

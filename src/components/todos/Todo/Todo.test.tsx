@@ -34,7 +34,7 @@ describe('Todo', () => {
     expect(todoPriority).toBeInTheDocument()
   })
 
-  it('should delete item when user clicks on X button', () => {
+  it('should delete item when user clicks on "X" button', () => {
     const deleteButton: Element = renderResult.getByText('X')
 
     userEvent.click(deleteButton)

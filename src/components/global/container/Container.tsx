@@ -10,7 +10,8 @@ export const Container = styled.div`
   margin-right: 0.2em;
   margin: 0 auto;
   margin-bottom: 0.4em;
-  background-color: rgb(26, 27, 30);
+  background-color: ${({ color }) => color ? `#${color}`: 'none'};
+  box-shadow: 1px 2px 4px 1px rgba(125, 125, 125, 0.2);
   color: rgb(193, 194, 197);
   border-radius: 6px;
   gap: 1em;

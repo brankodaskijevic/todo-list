@@ -1,6 +1,8 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Button } from '../../global/button/Button'
+import { Container } from '../../global/container/Container'
+import classes from './TodoInput.module.css'
 import { Todo, Priority } from '../../../types'
 import { TodoInputProps } from './interfaces'
 import {
@@ -49,16 +51,23 @@ const TodoInput: FC<TodoInputProps> = ({
   }
 
   return (
-    <form onSubmit={formSubmitHandler}>
-      <input type="text" placeholder='Todo text' value={enteredTodo} onChange={taskInputChangeHandler} />
-      <small>Select todo priority</small>
-      <select value={selectedPriorityType} onChange={prioritySelectChangeHandler}>
-        <option value="HIGH">High</option>
-        <option value="MEDIUM">Medium</option>
-        <option value="LOW">Low</option>
-      </select>
-      <Button type='submit'>Add todo</Button>
-    </form>
+    <Container color='fff'>
+      <form onSubmit={formSubmitHandler}>
+        <input
+          type="text"
+          placeholder='Todo text'
+          value={enteredTodo}
+          className={classes.todo_input}
+          onChange={taskInputChangeHandler} />
+        <small>Select todo priority</small>
+        <select value={selectedPriorityType} onChange={prioritySelectChangeHandler}>
+          <option value="HIGH">High</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="LOW">Low</option>
+        </select>
+        <Button type='submit'>ADD TODO</Button>
+      </form>
+    </Container>
   )
 }
 

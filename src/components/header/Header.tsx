@@ -8,7 +8,7 @@ const Header = styled.header`
   font-size: 3rem;
   font-weight: bold;
   padding: 1rem 0rem;
-  color: rgb(25, 113, 194);
+  color: #273049;
 
   @media (max-width: ${({ theme }) => theme.tablet}) {
     width: 100%;
@@ -19,6 +19,7 @@ const Header = styled.header`
     width: 100%;
     font-size: 1.5rem;
     padding: 0.6rem 0rem;
+    background-color: white;
   }
 `
 

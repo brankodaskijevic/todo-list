@@ -13,7 +13,7 @@ export const Container = styled.div`
   background-color: ${({ color }) => color ? `#${color}`: 'none'};
   box-shadow: 1px 2px 4px 1px rgba(125, 125, 125, 0.2);
   color: rgb(193, 194, 197);
-  border-radius: 6px;
+  border-radius: 4px;
   gap: 1em;
 
   @media (max-width: ${({ theme }) => theme.tablet}) {

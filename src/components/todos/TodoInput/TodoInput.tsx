@@ -55,12 +55,15 @@ const TodoInput: FC<TodoInputProps> = ({
       <form onSubmit={formSubmitHandler}>
         <input
           type="text"
-          placeholder='Todo text'
+          placeholder='Enter new todo'
           value={enteredTodo}
           className={classes.todo_input}
           onChange={taskInputChangeHandler} />
         <small>Select todo priority</small>
-        <select value={selectedPriorityType} onChange={prioritySelectChangeHandler}>
+        <select
+          value={selectedPriorityType}
+          className={classes.todo_select}
+          onChange={prioritySelectChangeHandler}>
           <option value="HIGH">High</option>
           <option value="MEDIUM">Medium</option>
           <option value="LOW">Low</option>

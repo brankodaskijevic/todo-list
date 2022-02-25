@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, useState } from 'react'
-import { Button } from '../../global/button/Button'
+import { Button } from '../../global/Button/Button'
 import { Todo } from '../../../types'
 import { TodosFilterProps } from './interfaces'
 

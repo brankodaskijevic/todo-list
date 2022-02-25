@@ -60,18 +60,15 @@ const TodoInput: FC<TodoInputProps> = ({
             value={enteredTodo}
             className={classes.todo_input}
             onChange={taskInputChangeHandler} />
-          <div className={classes.select_group}>
-            {/* <small>Select todo priority</small> */}
-            <select
-              value={selectedPriorityType}
-              className={classes.todo_select}
-              onChange={prioritySelectChangeHandler}>
-              <option>Select todo priority</option>
-              <option value="HIGH">High</option>
-              <option value="MEDIUM">Medium</option>
-              <option value="LOW">Low</option>
-            </select>
-          </div>
+          <select
+            value={selectedPriorityType}
+            className={classes.todo_select}
+            onChange={prioritySelectChangeHandler}>
+            <option>Select todo priority</option>
+            <option value="HIGH">High</option>
+            <option value="MEDIUM">Medium</option>
+            <option value="LOW">Low</option>
+          </select>
           <Button type='submit'>ADD TODO</Button>
         </div>
       </form>

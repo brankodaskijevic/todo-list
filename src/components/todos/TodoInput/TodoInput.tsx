@@ -14,7 +14,7 @@ const TodoInput: FC<TodoInputProps> = ({
   onAddTodo
 }) => {
   const [enteredTodo, setEnteredTodo] = useState<string>('')
-  const [selectedPriorityType, setSelectedPriorityType] = useState<Priority>('MEDIUM')
+  const [selectedPriorityType, setSelectedPriorityType] = useState<Priority | string>('')
 
   const taskInputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setEnteredTodo(event.target.value)
@@ -53,22 +53,27 @@ const TodoInput: FC<TodoInputProps> = ({
   return (
     <Container color='fff'>
       <form onSubmit={formSubmitHandler}>
-        <input
-          type="text"
-          placeholder='Enter new todo'
-          value={enteredTodo}
-          className={classes.todo_input}
-          onChange={taskInputChangeHandler} />
-        <small>Select todo priority</small>
-        <select
-          value={selectedPriorityType}
-          className={classes.todo_select}
-          onChange={prioritySelectChangeHandler}>
-          <option value="HIGH">High</option>
-          <option value="MEDIUM">Medium</option>
-          <option value="LOW">Low</option>
-        </select>
-        <Button type='submit'>ADD TODO</Button>
+        <div className={classes.form_group}>
+          <input
+            type="text"
+            placeholder='Enter new todo'
+            value={enteredTodo}
+            className={classes.todo_input}
+            onChange={taskInputChangeHandler} />
+          <div className={classes.select_group}>
+            {/* <small>Select todo priority</small> */}
+            <select
+              value={selectedPriorityType}
+              className={classes.todo_select}
+              onChange={prioritySelectChangeHandler}>
+              <option>Select todo priority</option>
+              <option value="HIGH">High</option>
+              <option value="MEDIUM">Medium</option>
+              <option value="LOW">Low</option>
+            </select>
+          </div>
+          <Button type='submit'>ADD TODO</Button>
+        </div>
       </form>
     </Container>
   )

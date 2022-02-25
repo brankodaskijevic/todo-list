@@ -16,11 +16,6 @@ export const Container = styled.div`
   border-radius: 4px;
   gap: 1em;
 
-  @media (max-width: ${({ theme }) => theme.tablet}) {
-    width: 100%;
-    font-size: 2rem;
-  }
-
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
     font-size: 1.5rem;

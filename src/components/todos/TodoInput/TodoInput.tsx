@@ -2,6 +2,7 @@ import { ChangeEvent, FC, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Button } from '../../global/Button/Button'
 import { Container } from '../../global/Container/Container'
+import SelectMenu from '../../global/Select/SelectMenu'
 import classes from './TodoInput.module.css'
 import { Todo, Priority } from '../../../types'
 import { TodoInputProps } from './interfaces'
@@ -9,12 +10,18 @@ import {
   getTodosFromLocalStorage,
   saveTodoToLocalStorage
 } from '../../../utils/storage/local-storage-utils'
+import { OptionsType } from '../../global/Select/interfaces'
 
 const TodoInput: FC<TodoInputProps> = ({
   onAddTodo
 }) => {
   const [enteredTodo, setEnteredTodo] = useState<string>('')
   const [selectedPriorityType, setSelectedPriorityType] = useState<Priority | string>('')
+  const selectData: OptionsType[] = [
+    { value: 'HIGH', text: 'High' },
+    { value: 'MEDIUM', text: 'Medium' },
+    { value: 'LOW', text: 'Low' },
+  ]
 
   const taskInputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setEnteredTodo(event.target.value)
@@ -60,15 +67,12 @@ const TodoInput: FC<TodoInputProps> = ({
             value={enteredTodo}
             className={classes.todo_input}
             onChange={taskInputChangeHandler} />
-          <select
+          <SelectMenu
             value={selectedPriorityType}
-            className={classes.todo_select}
-            onChange={prioritySelectChangeHandler}>
-            <option>Select todo priority</option>
-            <option value="HIGH">High</option>
-            <option value="MEDIUM">Medium</option>
-            <option value="LOW">Low</option>
-          </select>
+            selectHandler={prioritySelectChangeHandler}
+            defaultValue='Select todo priority'
+            data={selectData}
+          />
           <Button type='submit'>ADD TODO</Button>
         </div>
       </form>

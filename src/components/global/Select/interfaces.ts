@@ -2,13 +2,13 @@ import { ChangeEventHandler } from 'react'
 import { Priority } from '../../../types'
 
 export type OptionsType = {
-  value: Priority
+  value: Priority | string
   text: string
 }
 
 export interface SelectMenuProps<T> {
   value: T
   selectHandler: ChangeEventHandler
-  defaultValue: string
+  defaultValue?: string
   data: OptionsType[]
 }

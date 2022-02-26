@@ -1,13 +1,22 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { Button } from '../../global/Button/Button'
+import SelectMenu from '../../global/Select/SelectMenu'
 import { Todo } from '../../../types'
 import { TodosFilterProps } from './interfaces'
+import { OptionsType } from '../../global/Select/interfaces'
+import { Container } from '../../global/Container/Container'
 
 const TodosFilter: FC<TodosFilterProps> = ({
   todos,
   onFilteredTodos
 }) => {
   const [filterValue, setFilterValue] = useState<string>('')
+  const filterOptions: OptionsType[] = [
+    { value: 'ALL', text: 'All'},
+    { value: 'HIGH', text: 'High' },
+    { value: 'MEDIUM', text: 'Medium' },
+    { value: 'LOW', text: 'Low' },
+  ]
 
   const filterHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     setFilterValue(event.target.value)
@@ -26,17 +35,17 @@ const TodosFilter: FC<TodosFilterProps> = ({
   }
 
   return (
-    <>
+    <Container color='fff'>
       <form onSubmit={submitFilterHandler}>
-        <select value={filterValue} onChange={filterHandler}>
-          <option value='ALL'>All</option>
-          <option value="HIGH">High</option>
-          <option value="MEDIUM">Medium</option>
-          <option value="LOW">Low</option>
-        </select>
+        <SelectMenu
+          value={filterValue}
+          selectHandler={filterHandler}
+          defaultValue='Filter options'
+          data={filterOptions}
+        />
         <Button type='submit'>Set filter</Button>
       </form>
-    </>
+    </Container>
   )
 }
 

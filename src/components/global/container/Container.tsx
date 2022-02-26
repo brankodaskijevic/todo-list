@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   width: 1024px;
@@ -14,7 +15,7 @@ export const Container = styled.div`
   box-shadow: 1px 2px 4px 1px rgba(125, 125, 125, 0.2);
   color: rgb(193, 194, 197);
   border-radius: 4px;
-  gap: 1em;
+  gap: 0.5em;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;

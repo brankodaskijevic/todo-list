@@ -58,25 +58,23 @@ const TodoInput: FC<TodoInputProps> = ({
   }
 
   return (
-    <Container color='fff'>
-      <form onSubmit={formSubmitHandler}>
-        <div className={classes.form_group}>
-          <input
-            type="text"
-            placeholder='Enter new todo'
-            value={enteredTodo}
-            className={classes.todo_input}
-            onChange={taskInputChangeHandler} />
-          <SelectMenu
-            value={selectedPriorityType}
-            selectHandler={prioritySelectChangeHandler}
-            defaultValue='Select todo priority'
-            data={selectData}
-          />
-          <Button type='submit'>ADD TODO</Button>
-        </div>
-      </form>
-    </Container>
+    <form onSubmit={formSubmitHandler}>
+      <div className={classes.form_group}>
+        <input
+          type="text"
+          placeholder='Enter new todo'
+          value={enteredTodo}
+          className={classes.todo_input}
+          onChange={taskInputChangeHandler} />
+        <SelectMenu
+          value={selectedPriorityType}
+          selectHandler={prioritySelectChangeHandler}
+          defaultValue='Select todo priority'
+          data={selectData}
+        />
+        <Button type='submit'>ADD TODO</Button>
+      </div>
+    </form>
   )
 }
 

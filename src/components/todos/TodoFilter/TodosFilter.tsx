@@ -4,7 +4,7 @@ import SelectMenu from '../../global/Select/SelectMenu'
 import { Todo } from '../../../types'
 import { TodosFilterProps } from './interfaces'
 import { OptionsType } from '../../global/Select/interfaces'
-import { Container } from '../../global/Container/Container'
+import classes from './TodoFilter.module.css'
 
 const TodosFilter: FC<TodosFilterProps> = ({
   todos,
@@ -35,17 +35,17 @@ const TodosFilter: FC<TodosFilterProps> = ({
   }
 
   return (
-    <Container color='fff'>
-      <form onSubmit={submitFilterHandler}>
+    <form onSubmit={submitFilterHandler}>
+      <div className={classes.form_group}>
         <SelectMenu
           value={filterValue}
           selectHandler={filterHandler}
           defaultValue='Filter options'
           data={filterOptions}
         />
-        <Button type='submit'>Set filter</Button>
-      </form>
-    </Container>
+        <Button type='submit'>SET FILTER</Button>
+      </div>
+    </form>
   )
 }
 

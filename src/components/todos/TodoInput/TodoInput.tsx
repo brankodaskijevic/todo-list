@@ -1,7 +1,6 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Button } from '../../global/Button/Button'
-import { Container } from '../../global/Container/Container'
 import SelectMenu from '../../global/Select/SelectMenu'
 import classes from './TodoInput.module.css'
 import { Todo, Priority } from '../../../types'

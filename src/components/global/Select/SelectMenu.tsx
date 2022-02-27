@@ -16,7 +16,7 @@ const SelectMenu: FC<SelectMenuProps> = ({
       onChange={selectHandler}>
       <option >{defaultValue}</option>
       {data.map((option: OptionsType) => (
-        <option value={option.value}>{option.text}</option>
+        <option value={option.value} key={option.text}>{option.text}</option>
       ))}
     </select>
   )

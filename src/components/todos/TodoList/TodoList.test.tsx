@@ -1,12 +1,10 @@
-import { cleanup, render, RenderResult } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { v4 as uuidv4 } from 'uuid'
 import TodoList from './TodoList'
 import { Todo } from '../../../types';
 import { TodoListProps } from './interfaces'
 
 describe('TodoList', () => {
-  let renderResult: RenderResult
-
   const onSetTodos: jest.Mock = jest.fn()
   const todos: Todo[] = [
     { id: uuidv4(), text: 'test todo 1', complete: false, priority: 'HIGH' },
@@ -19,17 +17,17 @@ describe('TodoList', () => {
   }
 
   beforeEach(() => {
-    renderResult = render(<TodoList {...todoListProps} />)
+    render(<TodoList {...todoListProps} />)
   })
 
   it('renders TodoList component with passed todos array', () => {
-    const todoOneText: Element = renderResult.getByText('test todo 1')
-    const todoOnePriority: Element = renderResult.getByText('HIGH')
-    const deleteTodoButton: Element = renderResult.getAllByText('X')[0] as HTMLButtonElement
+    const todoOneText: Element = screen.getByText('test todo 1')
+    const todoOnePriority: Element = screen.getByText('HIGH')
+    const deleteTodoButton: Element = screen.getAllByText('X')[0] as HTMLButtonElement
 
-    const todoTwoText: Element = renderResult.getByText('test todo 2')
-    const todoTwoPriority: Element = renderResult.getByText('LOW')
-    const deleteTodoTwoButton: Element = renderResult.getAllByText('X')[1] as HTMLButtonElement
+    const todoTwoText: Element = screen.getByText('test todo 2')
+    const todoTwoPriority: Element = screen.getByText('LOW')
+    const deleteTodoTwoButton: Element = screen.getAllByText('X')[1] as HTMLButtonElement
 
     expect(todoOneText).toBeInTheDocument()
     expect(todoOnePriority).toBeInTheDocument()

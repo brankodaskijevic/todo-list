@@ -1,4 +1,4 @@
-import { cleanup, render, RenderResult } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { v4 as uuidv4 } from 'uuid'
 import { Todo } from '../../../types'
@@ -8,9 +8,6 @@ import TodosFilter from './TodosFilter'
 
 
 describe('TodoFilter', () => {
-  let renderResult: RenderResult
-  let renderTodoList: RenderResult
-
   const onFilteredTodos: jest.Mock = jest.fn()
   const onSetTasks: jest.Mock = jest.fn()
   const todos: Todo[] = [
@@ -24,23 +21,23 @@ describe('TodoFilter', () => {
   }
 
   beforeEach(() => {
-    renderResult = render(<TodosFilter {...todoFilterProps} />)
+    render(<TodosFilter {...todoFilterProps} />)
   })
 
   afterAll(() => {
-    cleanup()
+    jest.clearAllMocks()
   })
 
   it('renders TodoFilter component with right properties', () => {
-    const filterOptionsDropdown: Element = renderResult.getByText('All')
-    const filterButton: Element = renderResult.getByText('Set filter')
+    const filterOptionsDropdown: Element = screen.getByText('All')
+    const filterButton: Element = screen.getByText('SET FILTER')
 
     expect(filterOptionsDropdown).toBeInTheDocument()
     expect(filterButton).toBeInTheDocument()
   })
 
   it('should filter todos when user click "Set filter" button', () => {
-    const filterButton: Element = renderResult.getByText('Set filter')
+    const filterButton: Element = screen.getByText('SET FILTER')
 
     userEvent.click(filterButton)
 

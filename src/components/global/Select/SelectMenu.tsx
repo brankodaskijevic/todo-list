@@ -2,7 +2,7 @@ import { FC} from 'react'
 import { OptionsType, SelectMenuProps } from './interfaces'
 import classes from './SelectMenu.module.css'
 
-const SelectMenu: FC<SelectMenuProps<any>> = ({
+const SelectMenu: FC<SelectMenuProps> = ({
   value,
   selectHandler,
   defaultValue,

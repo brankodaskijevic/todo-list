@@ -22,10 +22,6 @@ describe('TodoList', () => {
     renderResult = render(<TodoList {...todoListProps} />)
   })
 
-  afterAll(() => {
-    cleanup()
-  })
-
   it('renders TodoList component with passed todos array', () => {
     const todoOneText: Element = renderResult.getByText('test todo 1')
     const todoOnePriority: Element = renderResult.getByText('HIGH')

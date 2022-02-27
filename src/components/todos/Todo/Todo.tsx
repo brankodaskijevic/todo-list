@@ -1,5 +1,7 @@
 import { FC } from 'react'
+import { Button } from '../../global/Button/Button'
 import { saveTodoToLocalStorage } from '../../../utils/storage/local-storage-utils'
+import classes from './Todo.module.css'
 import { Todo as TodoT } from '../../../types'
 import { TodoProps } from './interfaces'
 
@@ -18,10 +20,11 @@ const Todo: FC<TodoProps> = ({
   return (
     <>
       {todos.map((item: TodoT) => (
-        <li key={item.id}>
-          <p>{item.text}</p> - <p>{item.priority}</p>
-          <button onClick={deleteItemHandler.bind(null, item.id)}>X</button>
-        </li>
+        <div className={classes.list_container} key={item.id}>
+          <p>{item.text}</p>
+          <p className={classes.list_priority}>{item.priority}</p>
+          <Button onClick={deleteItemHandler.bind(null, item.id)} color='ff5c5c'>X</Button>
+        </div>
       ))}
     </>
   )

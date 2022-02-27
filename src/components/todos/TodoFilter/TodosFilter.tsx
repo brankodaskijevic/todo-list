@@ -1,16 +1,19 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { Button } from '../../global/Button/Button'
 import SelectMenu from '../../global/Select/SelectMenu'
-import { Todo } from '../../../types'
+import { SelectFilter, Todo } from '../../../types'
 import { TodosFilterProps } from './interfaces'
 import { OptionsType } from '../../global/Select/interfaces'
 import classes from './TodoFilter.module.css'
+
+const isSelectFilter = (selectValue: string): selectValue is SelectFilter =>
+  selectValue === 'ALL' || selectValue === 'HIGH' || selectValue === 'MEDIUM' || selectValue === 'LOW'
 
 const TodosFilter: FC<TodosFilterProps> = ({
   todos,
   onFilteredTodos
 }) => {
-  const [filterValue, setFilterValue] = useState<string>('')
+  const [filterValue, setFilterValue] = useState<SelectFilter>('ALL')
   const filterOptions: OptionsType[] = [
     { value: 'ALL', text: 'All'},
     { value: 'HIGH', text: 'High' },
@@ -19,7 +22,9 @@ const TodosFilter: FC<TodosFilterProps> = ({
   ]
 
   const filterHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-    setFilterValue(event.target.value)
+    if (isSelectFilter(event.target.value)) {
+      setFilterValue(event.target.value)
+    }
   }
 
   const submitFilterHandler = (event: ChangeEvent<HTMLFormElement>) => {

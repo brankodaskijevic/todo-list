@@ -1,0 +1,23 @@
+.list_container {
+  width: 1024px;
+  background-color: #fff;
+  box-shadow: 1px 2px 4px 1px rgba(125, 125, 125, 0.2);
+  color: rgb(193, 194, 197);
+  border-radius: 4px;
+  position: relative;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* .list_container p {
+  position: absolute;
+  right: 4rem;
+}
+
+.list_container button {
+  position: absolute;
+  top: 25%;
+  /* transform: translateY(-50%); */
+  /*right: 1rem;
+} */

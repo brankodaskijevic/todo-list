@@ -15,7 +15,7 @@ const TodoInput: FC<TodoInputProps> = ({
   onAddTodo
 }) => {
   const [enteredTodo, setEnteredTodo] = useState<string>('')
-  const [selectedPriorityType, setSelectedPriorityType] = useState<Priority | string>('')
+  const [selectedPriorityType, setSelectedPriorityType] = useState<Priority>('')
   const selectData: OptionsType[] = [
     { value: 'HIGH', text: 'High' },
     { value: 'MEDIUM', text: 'Medium' },

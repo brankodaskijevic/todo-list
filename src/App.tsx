@@ -26,12 +26,16 @@ function App() {
   }, [initalTodos])
 
   let content: JSX.Element = (
-    <img src={SVGImage} alt="Empty state" />
+    <Container color='fff'>
+      <img src={SVGImage} alt="Empty state" />
+    </Container>
   )
 
   if (initalTodos.length > 0) {
     content = (
-      <TodoList todos={filteredTodos} onSetTodos={setInitalTodos} />
+      <ScrollView>
+        <TodoList todos={filteredTodos} onSetTodos={setInitalTodos} />
+      </ScrollView>
     )
   }
 
@@ -46,9 +50,7 @@ function App() {
           <TodosFilter todos={initalTodos} onFilteredTodos={setFilteredTodos} />
         </div>
       </Container>
-      <ScrollView color='fff'>
-        {content}
-      </ScrollView>
+      {content}
     </>
   )
 }

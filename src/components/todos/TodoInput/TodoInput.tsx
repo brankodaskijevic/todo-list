@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { Button } from '../../global/Button/Button'
 import SelectMenu from '../../global/Select/SelectMenu'
 import classes from './TodoInput.module.css'
-import { Todo, Priority } from '../../../types'
+import { Todo, Priority, SelectPriority } from '../../../types'
 import { TodoInputProps } from './interfaces'
 import {
   getTodosFromLocalStorage,
@@ -15,7 +15,7 @@ const TodoInput: FC<TodoInputProps> = ({
   onAddTodo
 }) => {
   const [enteredTodo, setEnteredTodo] = useState<string>('')
-  const [selectedPriorityType, setSelectedPriorityType] = useState<Priority>('')
+  const [selectedPriorityType, setSelectedPriorityType] = useState<SelectPriority>('')
   const selectData: OptionsType[] = [
     { value: 'HIGH', text: 'High' },
     { value: 'MEDIUM', text: 'Medium' },

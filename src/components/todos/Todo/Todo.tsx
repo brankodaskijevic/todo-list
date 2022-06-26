@@ -25,7 +25,7 @@ const Todo: FC<TodoProps> = ({
 					<p className={classes.list_priority}>{item.priority}</p>
 					<Button
 						onClick={deleteItemHandler.bind(null, item.id)}
-						color='CD5C5C' /* color of the x button on todos */
+						color='#CD5C5C' /* color of the x button on todos */
 					>
 						X
 					</Button>

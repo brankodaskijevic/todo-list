@@ -8,6 +8,7 @@ export const Button = styled.button`
 	border-radius: 15px;
 	font-size: 0.8em;
 	cursor: pointer;
+	color: #3c5582;
 
 	&:hover {
 		transform: scale(0.98);

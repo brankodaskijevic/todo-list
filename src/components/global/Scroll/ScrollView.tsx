@@ -8,13 +8,10 @@ export const ScrollView = styled.div`
   width: 1024px;
   max-height: 70vh;
   padding: 0.5rem 0rem;
-  margin-left: 0.2em;
-  margin-right: 0.2em;
   margin: 0 auto;
   margin-bottom: 0.4em;
   background-color: ${({ color }) => color ? `#${color}`: 'none'};
-  color: #273049;
-  /* gap: 0.5em; */
+  color: #273049;  
   overflow: auto;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {

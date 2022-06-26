@@ -40,18 +40,20 @@ const TodosFilter: FC<TodosFilterProps> = ({
   }
 
   return (
-    <form onSubmit={submitFilterHandler}>
-      <div className={classes.form_group}>
-        <SelectMenu
-          value={filterValue}
-          selectHandler={filterHandler}
-          defaultValue='Filter options'
-          data={filterOptions}
-        />
-        <Button type='submit'>SET FILTER</Button>
-      </div>
-    </form>
-  )
+		<form onSubmit={submitFilterHandler}>
+			<div className={classes.form_group}>
+				<SelectMenu
+					value={filterValue}
+					selectHandler={filterHandler}
+					defaultValue='Filter options'
+					data={filterOptions}
+				/>
+				<Button type='submit' color='3c5582'>
+					SET FILTER
+				</Button>
+			</div>
+		</form>
+	)
 }
 
 export default TodosFilter

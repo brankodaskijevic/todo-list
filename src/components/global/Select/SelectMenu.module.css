@@ -1,10 +1,13 @@
 .todo_select {
+  display: flex;
+  text-align: center;
   font-size: 1rem;
-  border-radius: 4px;
-  border: 2px solid #E3E9F0;
-  padding: 0.8rem 1.6rem 0.6rem 1.6rem;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid #34496f22;
+  padding: 0.8rem 1.6rem;
   margin: 0.4rem;
-  color: #273049;
+  color: #3c5582;
   outline: none;
   cursor: pointer;
 }

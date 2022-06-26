@@ -18,16 +18,21 @@ const Todo: FC<TodoProps> = ({
   }
 
   return (
-    <>
-      {todos.map((item: TodoT) => (
-        <div className={classes.list_container} key={item.id}>
-          <p>{item.text}</p>
-          <p className={classes.list_priority}>{item.priority}</p>
-          <Button onClick={deleteItemHandler.bind(null, item.id)} color='ff5c5c'>X</Button>
-        </div>
-      ))}
-    </>
-  )
+		<>
+			{todos.map((item: TodoT) => (
+				<div className={classes.list_container} key={item.id}>
+					<p>{item.text}</p>
+					<p className={classes.list_priority}>{item.priority}</p>
+					<Button
+						onClick={deleteItemHandler.bind(null, item.id)}
+						color='CD5C5C' /* color of the x button on todos */
+					>
+						X
+					</Button>
+				</div>
+			))}
+		</>
+	)
 }
 
 export default Todo

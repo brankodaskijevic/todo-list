@@ -1,11 +1,12 @@
-export type Priority = 'HIGH' | 'MEDIUM' | 'LOW' | string
+export type Priority = 'HIGH' | 'MEDIUM' | 'LOW'
 export type SelectFilter = Priority | 'ALL'
+export type SelectPriority = Priority | string
 
 export interface Todo {
   id: string
   text: string
   complete: boolean
-  priority: Priority
+  priority: SelectPriority
 }
 
 // export interface HighPriorityTodo {

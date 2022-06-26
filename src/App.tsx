@@ -26,7 +26,7 @@ function App() {
   }, [initalTodos])
 
   let content: JSX.Element = (
-    <Container color='fff'>
+    <Container color='fff'> {/* body color */}
       <img src={SVGImage} alt="Empty state" />
     </Container>
   )
@@ -41,8 +41,8 @@ function App() {
 
   return (
     <>
-      <Header>Todo List</Header>
-      <Container color='fff'>
+      <Header>Todos</Header>
+      <Container color='fff'> {/* header color */}
         <div>
           <TodoInput onAddTodo={setInitalTodos} />
         </div>

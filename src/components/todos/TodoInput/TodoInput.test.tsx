@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import TodoInput from './TodoInput'
 import { TodoInputProps } from './interfaces';
@@ -15,14 +15,14 @@ describe('TodoInput', () => {
   })
 
   afterAll(() => {
-    cleanup()
+    jest.clearAllMocks()
   })
 
   it('renders TodoInput component with right properties', () => {
-    const input: Element = screen.getByPlaceholderText('Todo text')
+    const input: Element = screen.getByPlaceholderText('Enter new todo')
     const selectText: Element = screen.getByText('Select todo priority')
     const defaultPrioritySelected = screen.getByText('Medium')
-    const button: Element = screen.getByText('Add todo')
+    const button: Element = screen.getByText('ADD TODO')
 
     expect(input).toBeInTheDocument()
     expect(selectText).toBeInTheDocument()
@@ -31,7 +31,7 @@ describe('TodoInput', () => {
   })
 
   it('should trigger "Add todo" button when clicked', () => {
-    const button: Element = screen.getByText('Add todo')
+    const button: Element = screen.getByText('ADD TODO')
 
     userEvent.click(button)
 

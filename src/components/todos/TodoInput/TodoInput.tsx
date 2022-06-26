@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { Button } from '../../global/Button/Button'
 import SelectMenu from '../../global/Select/SelectMenu'
 import classes from './TodoInput.module.css'
-import { Todo, Priority } from '../../../types'
+import { Todo, Priority, SelectPriority } from '../../../types'
 import { TodoInputProps } from './interfaces'
 import {
   getTodosFromLocalStorage,
@@ -15,7 +15,7 @@ const TodoInput: FC<TodoInputProps> = ({
   onAddTodo
 }) => {
   const [enteredTodo, setEnteredTodo] = useState<string>('')
-  const [selectedPriorityType, setSelectedPriorityType] = useState<Priority>('')
+  const [selectedPriorityType, setSelectedPriorityType] = useState<SelectPriority>('')
   const selectData: OptionsType[] = [
     { value: 'HIGH', text: 'High' },
     { value: 'MEDIUM', text: 'Medium' },
@@ -57,24 +57,27 @@ const TodoInput: FC<TodoInputProps> = ({
   }
 
   return (
-    <form onSubmit={formSubmitHandler}>
-      <div className={classes.form_group}>
-        <input
-          type="text"
-          placeholder='Enter new todo'
-          value={enteredTodo}
-          className={classes.todo_input}
-          onChange={taskInputChangeHandler} />
-        <SelectMenu
-          value={selectedPriorityType}
-          selectHandler={prioritySelectChangeHandler}
-          defaultValue='Select todo priority'
-          data={selectData}
-        />
-        <Button type='submit'>ADD TODO</Button>
-      </div>
-    </form>
-  )
+		<form onSubmit={formSubmitHandler}>
+			<div className={classes.form_group}>
+				<input
+					type='text'
+					placeholder='Enter a new todo'
+					value={enteredTodo}
+					className={classes.todo_input}
+					onChange={taskInputChangeHandler}
+				/>
+				<SelectMenu
+					value={selectedPriorityType}
+					selectHandler={prioritySelectChangeHandler}
+					defaultValue='Select todo priority'
+					data={selectData}
+				/>
+				<Button type='submit' color='3c5582'>
+					ADD TODO
+				</Button>
+			</div>
+		</form>
+	)
 }
 
 export default TodoInput
